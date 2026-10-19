@@ -601,7 +601,7 @@
             <div class="status-pill">⚡ أول وكالة لإعلانات "التشهير الإيجابي والبيع العكسي" بالذكاء الاصطناعي</div>
             <h1>توقف عن مدح منتجك في الإعلانات لأن لا أحد يصدقك.. اصنع <mark>"فيديو تشهير ساخر"</mark> يفضح قوة منتجك ويضاعف مبيعاتك</h1>
             <p>نحول أقوى ميزة في منتجك إلى "تهمة جنائية ساخرة" تكسر العمى الإعلاني في أول ثانيتين، تطرد المترددين، وتجبر المشتري الجاد على الدفع فوراً.</p>
-            <video class="hero-video" controls playsinline preload="metadata" poster="" src="https://files.catbox.moe/cwgbc2.mp4" aria-label="الفيديو التعريفي لمنصة Roast Lab"></video>
+            <video class="hero-video" controls playsinline preload="metadata" poster="https://cdn.jsdelivr.net/gh/949486/roastlab-site@main/assets/posters/roastlab-hero.webp" src="https://cdn.jsdelivr.net/gh/949486/roastlab-site@main/assets/videos/roastlab-06.mp4" aria-label="الفيديو التعريفي لمنصة Roast Lab"></video>
         </header>
 
         <!-- المشكلة والحل -->
@@ -800,25 +800,28 @@
     <div class="crime-tape"></div>
 
     <script>
+        // أصول الفيديو المضغوطة والمستضافة مع الموقع لتقليل زمن التحميل
+        const ASSET_BASE = "https://cdn.jsdelivr.net/gh/949486/roastlab-site@main/assets";
+
         // رقم الواتساب لاستقبال الطلبات والفواتير
         const MY_WHATSAPP_NUMBER = "96500000000";
 
-        // قائمة الـ 14 فيديو الفريدة المرفوعة على Catbox
+        // قائمة الـ 14 فيديو بعد الضغط؛ لا يتم تحميل أي فيديو قبل اقترابه من الشاشة
         const evidenceVideos = [
-            { id: "01", url: "https://files.catbox.moe/uvlfcu.mp4", title: "النموذج الجنائي #01", style: "تشهير إيجابي ناطق بالعربية", desc: "زاوية هجومية حادة تحول جودة المنتج إلى تهمة تطرد المترددين." },
-            { id: "02", url: "https://files.catbox.moe/ryc0oo.mp4", title: "النموذج الجنائي #02", style: "بيع عكسي سينمائي", desc: "ضرب البدائل الرخيصة في مقتل ورفع هيبة العلامة التجارية." },
-            { id: "03", url: "https://files.catbox.moe/icnxa5.mp4", title: "النموذج الجنائي #03", style: "شخصية ناطقة", desc: "استفزاز ذكي للمشتري يجبره على إثبات جدارته باقتناء المنتج." },
-            { id: "04", url: "https://files.catbox.moe/933prg.mp4", title: "النموذج الجنائي #04", style: "إخراج 9:16 خاطف", desc: "إيقاف التمرير السريع في أول ثانيتين عبر صدمة الاعتراف العكسي." },
-            { id: "05", url: "https://files.catbox.moe/egmpkp.mp4", title: "النموذج الجنائي #05", style: "تمثيل صوتي حاد", desc: "تبرير السعر المرتفع وتحويله إلى علامة فخر وجودة لا تقبل المساومة." },
-            { id: "06", url: "https://files.catbox.moe/9ob70i.mp4", title: "النموذج الجنائي #06", style: "إضاءة درامية", desc: "كسر العمى الإعلاني بأسلوب مختلف تماماً عن إعلانات السوق المكررة." },
-            { id: "07", url: "https://files.catbox.moe/1cu9gg.mp4", title: "النموذج الجنائي #07", style: "سخرية تسويقية", desc: "تحويل قوة ثبات وأداء المنتج إلى مشكلة ساخرة تثير الفضول الفوري." },
-            { id: "08", url: "https://files.catbox.moe/8px37e.mp4", title: "النموذج الجنائي #08", style: "محاكمة البراند", desc: "وضع المنتج في قفص الاتهام لفضح تفوقه الكاسح على المنافسين." },
-            { id: "09", url: "https://files.catbox.moe/rhtr6l.mp4", title: "النموذج الجنائي #09", style: "هندسة نفسية", desc: "فلترة الزبائن وجذب أصحاب القدرة الشرائية العالية فقط." },
-            { id: "10", url: "https://files.catbox.moe/x23dl9.mp4", title: "النموذج الجنائي #10", style: "شخصية 3D / واقعي", desc: "حوار عربي فصيح وحاد بدون أي تلعثم مع تطابق حركة الشفاه." },
-            { id: "11", url: "https://files.catbox.moe/a4aep7.mp4", title: "النموذج الجنائي #11", style: "تحدي المشتري", desc: "إعلان يرفض التسول من العميل ويجعل الشراء امتيازاً خاصاً." },
-            { id: "12", url: "https://files.catbox.moe/am1uqk.mp4", title: "النموذج الجنائي #12", style: "صدمة بصرية", desc: "ديكور سينمائي فاخر يرفع القيمة السوقية للمنتج من النظرة الأولى." },
-            { id: "13", url: "https://files.catbox.moe/npu671.mp4", title: "النموذج الجنائي #13", style: "إغلاق بيعي", desc: "مصمم خصيصاً لرفع نسبة النقر (CTR) ومضاعفة العائد على الإعلان." },
-            { id: "14", url: "https://files.catbox.moe/6ca9sg.mp4", title: "النموذج الجنائي #14", style: "نموذج حصري", desc: "قالب متكامل جاهز للتخصيص باسم متجرك ومنتجك خلال 48 ساعة." }
+            { id: "01", url: `${ASSET_BASE}/videos/roastlab-01.mp4`, title: "النموذج الجنائي #01", style: "تشهير إيجابي ناطق بالعربية", desc: "زاوية هجومية حادة تحول جودة المنتج إلى تهمة تطرد المترددين." },
+            { id: "02", url: `${ASSET_BASE}/videos/roastlab-02.mp4`, title: "النموذج الجنائي #02", style: "بيع عكسي سينمائي", desc: "ضرب البدائل الرخيصة في مقتل ورفع هيبة العلامة التجارية." },
+            { id: "03", url: `${ASSET_BASE}/videos/roastlab-03.mp4`, title: "النموذج الجنائي #03", style: "شخصية ناطقة", desc: "استفزاز ذكي للمشتري يجبره على إثبات جدارته باقتناء المنتج." },
+            { id: "04", url: `${ASSET_BASE}/videos/roastlab-04.mp4`, title: "النموذج الجنائي #04", style: "إخراج 9:16 خاطف", desc: "إيقاف التمرير السريع في أول ثانيتين عبر صدمة الاعتراف العكسي." },
+            { id: "05", url: `${ASSET_BASE}/videos/roastlab-05.mp4`, title: "النموذج الجنائي #05", style: "تمثيل صوتي حاد", desc: "تبرير السعر المرتفع وتحويله إلى علامة فخر وجودة لا تقبل المساومة." },
+            { id: "06", url: `${ASSET_BASE}/videos/roastlab-06.mp4`, title: "النموذج الجنائي #06", style: "الفيديو التعريفي الطويل", desc: "الفيديو التعريفي الكامل لمنصة Roast Lab — 30 ثانية بجودة مناسبة للهاتف." },
+            { id: "07", url: `${ASSET_BASE}/videos/roastlab-07.mp4`, title: "النموذج الجنائي #07", style: "سخرية تسويقية", desc: "تحويل قوة ثبات وأداء المنتج إلى مشكلة ساخرة تثير الفضول الفوري." },
+            { id: "08", url: `${ASSET_BASE}/videos/roastlab-08.mp4`, title: "النموذج الجنائي #08", style: "محاكمة البراند", desc: "وضع المنتج في قفص الاتهام لفضح تفوقه الكاسح على المنافسين." },
+            { id: "09", url: `${ASSET_BASE}/videos/roastlab-09.mp4`, title: "النموذج الجنائي #09", style: "هندسة نفسية", desc: "فلترة الزبائن وجذب أصحاب القدرة الشرائية العالية فقط." },
+            { id: "10", url: `${ASSET_BASE}/videos/roastlab-10.mp4`, title: "النموذج الجنائي #10", style: "شخصية 3D / واقعي", desc: "حوار عربي فصيح وحاد بدون أي تلعثم مع تطابق حركة الشفاه." },
+            { id: "11", url: `${ASSET_BASE}/videos/roastlab-11.mp4`, title: "النموذج الجنائي #11", style: "تحدي المشتري", desc: "إعلان يرفض التسول من العميل ويجعل الشراء امتيازاً خاصاً." },
+            { id: "12", url: `${ASSET_BASE}/videos/roastlab-12.mp4`, title: "النموذج الجنائي #12", style: "صدمة بصرية", desc: "ديكور سينمائي فاخر يرفع القيمة السوقية للمنتج من النظرة الأولى." },
+            { id: "13", url: `${ASSET_BASE}/videos/roastlab-13.mp4`, title: "النموذج الجنائي #13", style: "إغلاق بيعي", desc: "مصمم خصيصاً لرفع نسبة النقر (CTR) ومضاعفة العائد على الإعلان." },
+            { id: "14", url: `${ASSET_BASE}/videos/roastlab-14.mp4`, title: "النموذج الجنائي #14", style: "نموذج حصري", desc: "قالب متكامل جاهز للتخصيص باسم متجرك ومنتجك خلال 48 ساعة." }
         ];
 
         // بناء بطاقات الفيديوهات الـ 14 داخل المعرض
@@ -832,7 +835,7 @@
                     <span class="badge-style">${item.style}</span>
                 </div>
                 <div class="video-container">
-                    <video controls playsinline preload="metadata" src="${item.url}"></video>
+                    <video controls playsinline preload="none" data-src="${item.url}"${item.id === "06" ? ` poster="${ASSET_BASE}/posters/roastlab-hero.webp"` : ""}></video>
                 </div>
                 <div class="evidence-body">
                     <div>
@@ -846,6 +849,27 @@
             `;
             galleryContainer.appendChild(card);
         });
+
+        // تحميل الفيديو عند اقتراب البطاقة من الشاشة، مع بديل للمتصفحات القديمة
+        const loadLazyVideo = (video) => {
+            if (!video.dataset.src) return;
+            video.src = video.dataset.src;
+            video.load();
+            delete video.dataset.src;
+        };
+        const lazyVideos = document.querySelectorAll('video[data-src]');
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    loadLazyVideo(entry.target);
+                    observer.unobserve(entry.target);
+                });
+            }, { rootMargin: '300px 0px' });
+            lazyVideos.forEach(video => videoObserver.observe(video));
+        } else {
+            lazyVideos.forEach(loadLazyVideo);
+        }
 
         // منع تشغيل أكثر من فيديو في نفس الوقت (حماية كاملة من تداخل الأصوات)
         document.addEventListener('play', function(e) {
